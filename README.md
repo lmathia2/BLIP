@@ -3,7 +3,7 @@
 <img src="BLIP.gif" width="700">
 
 This is the PyTorch code of the <a href="https://arxiv.org/abs/2201.12086">BLIP paper</a> [[blog](https://blog.salesforceairesearch.com/blip-bootstrapping-language-image-pretraining/)]. The code has been tested on PyTorch 1.10.
-To install the dependencies, run <pre/>pip install -r requirements.txt</pre> 
+To install the dependencies, run <pre/>pip3 install transformers==4.15.0 timm==0.4.12 fairscale==0.4.4</pre> 
 
 Catalog:
 - [x] Inference demo
