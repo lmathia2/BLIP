@@ -125,7 +125,7 @@ class BLIP_Decoder(nn.Module):
         
         return loss_lm
         
-    def generate(self, image, sample=False, num_beams=3, max_length=30, min_length=10, top_p=0.9, repetition_penalty=1.0):
+    def generate(self, image, sample=False, num_beams=5, max_length=30, min_length=10, top_p=0.9, repetition_penalty=1.0):
         image_embeds = self.visual_encoder(image)
 
         if not sample:
@@ -146,7 +146,7 @@ class BLIP_Decoder(nn.Module):
                                                   min_length=min_length,
                                                   do_sample=True,
                                                   top_p=top_p,
-                                                  num_return_sequences=1,
+                                                  num_return_sequences=3,
                                                   eos_token_id=self.tokenizer.sep_token_id,
                                                   pad_token_id=self.tokenizer.pad_token_id, 
                                                   repetition_penalty=1.1,                                            
@@ -157,6 +157,7 @@ class BLIP_Decoder(nn.Module):
                                                   max_length=max_length,
                                                   min_length=min_length,
                                                   num_beams=num_beams,
+                                                  num_return_sequences=3,
                                                   eos_token_id=self.tokenizer.sep_token_id,
                                                   pad_token_id=self.tokenizer.pad_token_id,     
                                                   repetition_penalty=repetition_penalty,
